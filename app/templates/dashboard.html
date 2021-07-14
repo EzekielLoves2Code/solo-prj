@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main menu</title>
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'css/style2.css'%}">
+
+</head>
+
+<body>
+    <h1>{{user.first_name}}!!!</h1>
+    <!-- <a href='/logout'>Log Out</a> -->
+    <!-- <a href="createpage">Create</a> -->
+    
+    
+    {%for idea in all_ideas%}
+    <table>
+        <tr>
+    
+            <th>Idea</th>
+            <th>Date Created</th>
+            <th>Creator</th>
+            <th>Actions</th>
+        </tr>
+        <tr>
+            <td>{{idea.name}}</td>
+            <td>{{idea.created_at}}</td>
+            <td>{{idea.created_by}}</td>
+            <td><a href="/{{idea.id}}">view</a></td>
+            <td><a href="{{idea.id}}/remove">Remove</a></td>
+            <td><a href="{{idea.id}}/editpage">Edit</a></td>
+    
+        </tr>
+    </table>
+</body>
+
+</html>
